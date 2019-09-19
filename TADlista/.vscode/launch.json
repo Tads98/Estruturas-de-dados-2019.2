@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - exec",
+            "request": "launch",
+            "mainClass": "exec",
+            "projectName": "TADlista"
+        }
+    ]
+}
