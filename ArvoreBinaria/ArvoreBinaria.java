@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import javax.lang.model.element.Element;
+
 class ArvoreBinaria{
 	
 	No raiz;
@@ -47,6 +49,44 @@ class ArvoreBinaria{
 		}
 
 	}
+	
+	/*
+	//Método para inserir elemento no No
+	public void Insert(int element){
+		No temp = search(raiz, element);
+		if(temp != null){
+			System.out.println("Elemento já existente");
+		}else{
+			if(isExternal(temp)){
+				No novo = new No();
+				if(temp < element){
+					novo.setelement(element);
+					novo.setpai(pai);
+				}else{
+					
+				}
+			}
+		}
+	}*/ 
+
+	//Método para buscar um No na esquerda ou na direita
+	public No search(No no, int element){
+		int temp = (int) no.getelement();
+		if(temp == element){
+			return no;
+		}else{
+			if(isInternal(no)){
+				if(temp < element){
+					No search = search(no.getleftChild(), element);
+					return search;
+				}else{
+					No search = search(no.getrightChild(), element);
+					return search;
+				}				
+			}
+			return null;
+		}
+	} 
 
 	public boolean isInternal(No v){
 		ArrayList filhos = Children(v);
@@ -91,7 +131,7 @@ class ArvoreBinaria{
 		return Children;
 	}
 	
-	//
+	//Troca elemento do filho
 	public Object replace(No v, Object o){
 		Object up = v.element();
 		v.setelement(o);
