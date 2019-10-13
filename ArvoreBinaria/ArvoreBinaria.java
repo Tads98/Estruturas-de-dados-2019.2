@@ -49,6 +49,14 @@ class ArvoreBinaria{
 		}
 
 	}
+
+	public int Height(){
+		if(raiz != null){
+			return raiz.Height();
+		}else{
+			return 0;
+		}
+	}
 	
 	/*
 	//Método para inserir elemento no No
@@ -138,4 +146,31 @@ class ArvoreBinaria{
 		return up;
 	}
 	
+	public void preOrder(No no){
+		if(no != null){
+			System.out.println(no.getelement());
+			preOrder(no.getleftChild());
+			preOrder(no.getrightChild());
+		}
+	}
+	
+	public void postOrder(No no){
+		if(no != null){
+			postOrder(no.getleftChild());
+			postOrder(no.getrightChild());
+			System.out.println(no.getelement());
+		}
+	}
+
+	public void inorder(No no){
+		if(no != null){
+			inorder(no.getleftChild());
+			System.out.println(no.getelement());
+			inorder(no.getrightChild());
+		}
+	}
+
+	//printExpression(v)
+
+	//evalExpr(v)
 }
