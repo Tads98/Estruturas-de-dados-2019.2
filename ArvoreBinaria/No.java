@@ -73,4 +73,18 @@ class No
     public No getrightChild(){
         return this.rightChild;
     }
+
+    //Altura da árvore (tirar dúvida com ismael)
+    public int Height() {
+        int leftHeight = 0, rightHeight = 0;
+
+        if(this.leftChild != null){
+            leftHeight = this.leftChild.Height();
+        }
+
+        if(this.leftChild != null){
+            rightHeight = this.rightChild.Height();
+        return 1 + Math.max(leftHeight, rightHeight);
+        }
+    }
 }
