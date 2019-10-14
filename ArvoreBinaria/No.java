@@ -3,7 +3,8 @@ class No
     private Object element;
     private No pai;
     //private Vector filhos = new Vector();
-    private No leftChild, rightChild;
+    No leftChild;
+	private No rightChild;
     
     public No(Object value)
     {
@@ -74,7 +75,7 @@ class No
         return this.rightChild;
     }
 
-    //Altura da árvore (tirar dúvida com ismael)
+    
     public int Height() {
         int leftHeight = 0, rightHeight = 0;
 
@@ -86,5 +87,6 @@ class No
             rightHeight = this.rightChild.Height();
         return 1 + Math.max(leftHeight, rightHeight);
         }
-    }
+        return Height;
+	}
 }

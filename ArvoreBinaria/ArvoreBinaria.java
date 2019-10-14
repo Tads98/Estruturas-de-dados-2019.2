@@ -74,8 +74,9 @@ class ArvoreBinaria{
 					
 				}
 			}
-		}
-	}*/ 
+        }
+        
+    }*/ 
 
 	//Método para buscar um No na esquerda ou na direita
 	public No search(No no, int element){
