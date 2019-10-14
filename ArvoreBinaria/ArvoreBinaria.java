@@ -6,7 +6,8 @@ class ArvoreBinaria{
 	
 	No raiz;
 	int tamanho;
-
+	
+	//Construtor
 	public ArvoreBinaria(Object o){
 		raiz = new No(o);
 		tamanho = 1;
@@ -49,7 +50,8 @@ class ArvoreBinaria{
 		}
 
 	}
-
+	
+	//Verifica a altura do Nó
 	public int Height(){
 		if(raiz != null){
 			return raiz.Height();
@@ -96,14 +98,14 @@ class ArvoreBinaria{
 			return null;
 		}
 	} 
-
+	//Verifica se o número de filhos(sub-árvores) é maior que 0
 	public boolean isInternal(No v){
 		ArrayList filhos = Children(v);
 		return(filhos.size() > 0);
 		
 		//return(v.childrenNumber() > 0);
 	}
-
+	//Verifica se o número de filhos(sub-àrvores) é igual a 0
 	public boolean isExternal(No v){
 		ArrayList filhos = Children(v);
 		return(filhos.size() == 0);
@@ -147,6 +149,7 @@ class ArvoreBinaria{
 		return up;
 	}
 	
+	//Nó visitado antes de seus descendentes
 	public void preOrder(No no){
 		if(no != null){
 			System.out.println(no.getelement());
@@ -154,7 +157,7 @@ class ArvoreBinaria{
 			preOrder(no.getrightChild());
 		}
 	}
-	
+	//Nó visitado após seus descendentes
 	public void postOrder(No no){
 		if(no != null){
 			postOrder(no.getleftChild());
@@ -162,7 +165,7 @@ class ArvoreBinaria{
 			System.out.println(no.getelement());
 		}
 	}
-
+	//Nó visitado são seus descendentes
 	public void inorder(No no){
 		if(no != null){
 			inorder(no.getleftChild());
