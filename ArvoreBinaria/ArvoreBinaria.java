@@ -9,7 +9,7 @@ class ArvoreBinaria{
 	
 	//Construtor
 	public ArvoreBinaria(Object o){
-		raiz = new No(o);
+		raiz = new No();
 		tamanho = 1;
 	}
 	//Num raiz
@@ -60,51 +60,51 @@ class ArvoreBinaria{
 		}
 	}
 	
-	/*
-	//Método para inserir elemento no No
-	public void Insert(int element){
-		No temp = search(raiz, element);
-		if(temp != null){
-			System.out.println("Elemento já existente");
-		}else{
-			if(isExternal(temp)){
-				No novo = new No();
-				if(temp < element){
-					novo.setelement(element);
-					novo.setpai(pai);
-				}else{
-					
-				}
-			}
-        }
-        
-<<<<<<< HEAD
-	}*/ 
-=======
-    }*/ 
->>>>>>> 16916fdc059fb404a7917121f2ef0167476398c7
-
 	//Inserir elemento em No
-	public No criarNovoNo(Object o){
-		No a  = new No(o);
-		a.leftChild = null;
-		a.rightChild = null;
-		return a;
-	}
+	public boolean insert(No no, int v){
+		if(search(no, v) == null){
+			if(isExternal(no)){
+				No novo = new No();
+				novo.setpai(no); 
+				novo.setelement(v);
+				if(no.getelement() > v){
+					no.setleftChild(novo);
+				}else{
+					no.setRightChild(novo);
+				}
+				}else{
+					boolean w;
+					if(no.getelement() > v && !hasLeft(no)) {
+						No novo = new No();
+						novo.setelement(v);
+						novo.setpai(no);
+						no.setleftChild(novo);
+						return true;
+					}
+					if(no.getelement() < v && !hasRight(no)) {
+						No novo = new No();
+						novo.setelement(v);
+						novo.setpai(no);
+						no.setleftChild(novo);
+						return true;
+					}
+					else {
+						if(no.getelement() > v) {
+							w = insert(no.getleftChild(), v);
+						}
+						else {
+							w = insert(no.getrightChild(), v);
+							
+						}
+						return false;
+					}
+				}
 
-	public No insert(No no, Object v){
-		if(no == null){
-			return criarNovoNo(v);
-		}
-		if(v < no.element){
-			no.leftChild = insert(no.leftChild, v);
-		}else if(v > no.element){
-			no.rightChild = insert(no.rightChild, v);
-		}
-		return no;
-	}
+				}
+		return false;
+			}
 
-	//Excluir elemento em No
+	/*Excluir elemento em No
 	public No delete(No no, Object v){
 		if (no == null){
 			return null;
@@ -145,7 +145,7 @@ class ArvoreBinaria{
 		}
 
 		return aux;
-	}
+	}*/
 
 	//Método para buscar um No na esquerda ou na direita
 	public No search(No no, int element){
@@ -210,7 +210,7 @@ class ArvoreBinaria{
 	}
 	
 	//Troca elemento do filho
-	public Object replace(No v, Object o){
+	public Object replace(No v, int o){
 		Object up = v.element();
 		v.setelement(o);
 		return up;
