@@ -6,7 +6,8 @@ class ArvoreBinaria{
 	
 	No raiz;
 	int tamanho;
-
+	
+	//Construtor
 	public ArvoreBinaria(Object o){
 		raiz = new No(o);
 		tamanho = 1;
@@ -49,7 +50,8 @@ class ArvoreBinaria{
 		}
 
 	}
-
+	
+	//Verifica a altura do Nó
 	public int Height(){
 		if(raiz != null){
 			return raiz.Height();
@@ -74,8 +76,72 @@ class ArvoreBinaria{
 					
 				}
 			}
-		}
+        }
+        
 	}*/ 
+
+	//Inserir elemento em No
+	public No criarNovoNo(Object o){
+		No a  = new No(o);
+		a.leftChild = null;
+		a.rightChild = null;
+		return a;
+	}
+
+	public No insert(No no, Object v){
+		if(no == null){
+			return criarNovoNo(v);
+		}
+		if(v < no.element){
+			no.leftChild = insert(no.leftChild, v);
+		}else if(v > no.element){
+			no.rightChild = insert(no.rightChild, v);
+		}
+		return no;
+	}
+
+	//Excluir elemento em No
+	public No delete(No no, Object v){
+		if (no == null){
+			return null;
+		}
+		if(v < no.element){
+			no.leftChild = delete(no.leftChild, v);
+		}else if(v > no.element){
+			no.rightChild = delete(no.rightChild, v);
+		}else{
+			if(no.leftChild == null || no.rightChild == null){
+				No aux = null;
+				aux = no.leftChild == null ? no.rightChild : no.leftChild;
+
+				if(aux == null){
+					return null;
+				}else{
+					return no;
+				}
+			}else{
+				No sucessor  = getsucessor(no);
+				no.element = sucessor.element;
+				no.rightChild = delete(no.rightChild, 4);
+				return no;
+			}
+		}
+		return no;
+	}
+
+	public No getsucessor(No no){
+		if(no == null){
+			return null;
+		}
+
+		No aux = no.rightChild;
+
+		while(aux != null){
+			aux = aux.leftChild;
+		}
+
+		return aux;
+	}
 
 	//Método para buscar um No na esquerda ou na direita
 	public No search(No no, int element){
@@ -95,14 +161,14 @@ class ArvoreBinaria{
 			return null;
 		}
 	} 
-
+	//Verifica se o número de filhos(sub-árvores) é maior que 0
 	public boolean isInternal(No v){
 		ArrayList filhos = Children(v);
 		return(filhos.size() > 0);
 		
 		//return(v.childrenNumber() > 0);
 	}
-
+	//Verifica se o número de filhos(sub-àrvores) é igual a 0
 	public boolean isExternal(No v){
 		ArrayList filhos = Children(v);
 		return(filhos.size() == 0);
@@ -146,6 +212,7 @@ class ArvoreBinaria{
 		return up;
 	}
 	
+	//Nó visitado antes de seus descendentes
 	public void preOrder(No no){
 		if(no != null){
 			System.out.println(no.getelement());
@@ -153,7 +220,7 @@ class ArvoreBinaria{
 			preOrder(no.getrightChild());
 		}
 	}
-	
+	//Nó visitado após seus descendentes
 	public void postOrder(No no){
 		if(no != null){
 			postOrder(no.getleftChild());
@@ -161,7 +228,7 @@ class ArvoreBinaria{
 			System.out.println(no.getelement());
 		}
 	}
-
+	//Nó visitado são seus descendentes
 	public void inorder(No no){
 		if(no != null){
 			inorder(no.getleftChild());
