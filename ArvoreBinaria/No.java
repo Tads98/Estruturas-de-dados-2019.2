@@ -1,24 +1,20 @@
 class No
 {
-    private Object element;
+    private int element;
     private No pai;
     //private Vector filhos = new Vector();
     No leftChild;
-<<<<<<< HEAD
 	No rightChild;
-=======
-	private No rightChild;
->>>>>>> 16916fdc059fb404a7917121f2ef0167476398c7
     
-    public No(Object value)
+    public No()
     {
         this.pai = null;
-        this.element = value;
+        this.element = (Integer) null;
         this.leftChild = null;
         this.rightChild = null;
     }
     
-    public Object element()
+    public int element()
     {
         return element;
     }
@@ -28,7 +24,7 @@ class No
         return pai;
     }
 
-    public void setelement(Object element)
+    public void setelement(int element)
     {
         this.element = element;
     }
@@ -51,7 +47,7 @@ class No
         return filhos.iterator();
     }*/
 
-    public Object getelement(){
+    public int getelement(){
         return this.element;
     }
 
@@ -87,10 +83,9 @@ class No
             leftHeight = this.leftChild.Height();
         }
 
-        if(this.leftChild != null){
+        if(this.rightChild != null){
             rightHeight = this.rightChild.Height();
-        return 1 + Math.max(leftHeight, rightHeight);
         }
-        return Height;
+        return 1 + Math.max(leftHeight, rightHeight);
 	}
 }
