@@ -78,7 +78,11 @@ class ArvoreBinaria{
 			}
         }
         
+<<<<<<< HEAD
 	}*/ 
+=======
+    }*/ 
+>>>>>>> 16916fdc059fb404a7917121f2ef0167476398c7
 
 	//Inserir elemento em No
 	public No criarNovoNo(Object o){
