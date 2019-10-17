@@ -78,7 +78,74 @@ class ArvoreBinaria{
 			}
         }
         
+<<<<<<< HEAD
+	}*/ 
+=======
     }*/ 
+>>>>>>> 16916fdc059fb404a7917121f2ef0167476398c7
+
+	//Inserir elemento em No
+	public No criarNovoNo(Object o){
+		No a  = new No(o);
+		a.leftChild = null;
+		a.rightChild = null;
+		return a;
+	}
+
+	public No insert(No no, Object v){
+		if(no == null){
+			return criarNovoNo(v);
+		}
+		if(v < no.element){
+			no.leftChild = insert(no.leftChild, v);
+		}else if(v > no.element){
+			no.rightChild = insert(no.rightChild, v);
+		}
+		return no;
+	}
+
+	//Excluir elemento em No
+	public No delete(No no, Object v){
+		if (no == null){
+			return null;
+		}
+		if(v < no.element){
+			no.leftChild = delete(no.leftChild, v);
+		}else if(v > no.element){
+			no.rightChild = delete(no.rightChild, v);
+		}else{
+			if(no.leftChild == null || no.rightChild == null){
+				No aux = null;
+				aux = no.leftChild == null ? no.rightChild : no.leftChild;
+
+				if(aux == null){
+					return null;
+				}else{
+					return no;
+				}
+			}else{
+				No sucessor  = getsucessor(no);
+				no.element = sucessor.element;
+				no.rightChild = delete(no.rightChild, 4);
+				return no;
+			}
+		}
+		return no;
+	}
+
+	public No getsucessor(No no){
+		if(no == null){
+			return null;
+		}
+
+		No aux = no.rightChild;
+
+		while(aux != null){
+			aux = aux.leftChild;
+		}
+
+		return aux;
+	}
 
 	//Método para buscar um No na esquerda ou na direita
 	public No search(No no, int element){

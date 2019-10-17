@@ -4,7 +4,11 @@ class No
     private No pai;
     //private Vector filhos = new Vector();
     No leftChild;
+<<<<<<< HEAD
+	No rightChild;
+=======
 	private No rightChild;
+>>>>>>> 16916fdc059fb404a7917121f2ef0167476398c7
     
     public No(Object value)
     {
