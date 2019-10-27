@@ -17,6 +17,11 @@ public class main{
 
         heap.printHeap();
 
+        System.out.println(heap.Deep(7));
+        heap.removeMin();
+        heap.printHeap();
+
+        
         
     }
 }
