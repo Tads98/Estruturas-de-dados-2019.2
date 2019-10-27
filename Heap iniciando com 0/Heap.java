@@ -41,6 +41,17 @@ public class Heap{
 
         return deleteV;
     }
+    
+    public int removeMin(){
+        //System.out.println("Size " + heap[size - 1]+ " root " + heap[0]);
+        int root = heap[0];
+        heap[0] = heap[size - 1];
+        heap[size - 1] = root;
+        size--;
+        fixHeapBelow(0, size- 1);
+        return root;
+
+    }
 
     //Verifica o valor do pai "acima" para ajustar com o do filho
     private void fixHeapAbove(int i){
@@ -108,6 +119,30 @@ public class Heap{
     public boolean isEmpty(){
         return size == 0;
     }
+
+    //Height
+    public int Height(int i){
+        int cont = 0;
+        while(heap[i] != 0){
+            if(i >= size -1){
+            break;
+            }
+            cont++;
+            i = 2 * i + 1;
+        }
+        return cont;
+    }
+    //Deep
+    public int Deep(int i){
+        int cont = 0;
+        while(heap[i] != heap[0]){
+            cont++;
+            i = getParent(i);
+        }
+        return cont;
+    }
+
+    //HeapSort
 
     //Cálculo de filho esquerdo ou direito
     public int getChild(int i, boolean left){
