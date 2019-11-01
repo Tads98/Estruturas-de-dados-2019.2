@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - priority",
+            "request": "launch",
+            "mainClass": "priority",
+            "projectName": "Heap iniciando com 0_fbdd1d90"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - main",
             "request": "launch",
             "mainClass": "main",

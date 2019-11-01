@@ -20,6 +20,7 @@ public class main{
         System.out.println(heap.Deep(7));
         heap.removeMin();
         heap.printHeap();
+        //System.out.println(heap.removeMin());
 
         
         
