@@ -13,15 +13,17 @@ public class main{
 
         heap.printHeap();
 
-        heap.delete(0);
+        //heap.delete(0);
 
-        heap.printHeap();
+        //heap.printHeap();
 
-        System.out.println(heap.Deep(7));
-        heap.removeMin();
-        heap.printHeap();
+        //System.out.println(heap.Deep(7));
+        //heap.removeMin();
+        //heap.printHeap();
         //System.out.println(heap.removeMin());
 
+        heap.sort();
+        heap.printHeap();
         
         
     }

@@ -42,13 +42,26 @@ public class Heap{
         return deleteV;
     }
     
+    //Heap-Sort Extra
+    public void sort(){
+        int lastheapi = size -1;
+        for (int i = 0; i < lastheapi; i++){
+            int aux = heap[0];
+            heap[0] = heap[lastheapi - i];
+            heap[lastheapi - i] =  aux;
+
+            fixHeapBelow(0, lastheapi -i -1);
+
+        }
+    }
+
     public int removeMin(){
         //System.out.println("Size " + heap[size - 1]+ " root " + heap[0]);
         int root = heap[0];
         heap[0] = heap[size - 1];
         heap[size - 1] = root;
         size--;
-        fixHeapBelow(0, size- 1);
+        fixHeapBelow(0, size - 1);
         return root;
 
     }
